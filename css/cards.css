@@ -1,0 +1,20 @@
+/* CARD BASE */
+.card {
+  background: #FFFFFF;
+  border-radius: 14px;
+  padding: 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+}
+
+/* QUESTION CARD */
+.question-number {
+  font-size: 13px;
+  color: #5F6C7B;
+  margin-bottom: 8px;
+}
+
+.question-text {
+  font-size: 17px;
+  font-weight: 500;
+}

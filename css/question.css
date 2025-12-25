@@ -1,0 +1,87 @@
+/* TOP BAR */
+.top-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 56px;
+  background: #FFFFFF;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  z-index: 10;
+}
+
+.back-btn {
+  font-size: 18px;
+  margin-right: 12px;
+}
+
+.top-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.topic-name {
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.question-count {
+  font-size: 12px;
+  color: #5F6C7B;
+}
+
+/* OPTIONS */
+.options {
+  margin-top: 12px;
+}
+
+.option {
+  width: 100%;
+  text-align: left;
+  padding: 14px;
+  border-radius: 12px;
+  background: #FFFFFF;
+  border: 1px solid #E5E7EB;
+  margin-bottom: 12px;
+  font-size: 15px;
+}
+
+/* SELECTED STATE (we'll activate via JS later) */
+.option.selected {
+  border-color: #1F3A5F;
+  background: #EEF3FA;
+}
+
+/* FEEDBACK */
+.feedback {
+  margin-top: 16px;
+  padding: 14px;
+  border-radius: 12px;
+  background: #F1F5F9;
+  font-size: 14px;
+}
+
+.feedback.correct {
+  color: #2E7D32;
+}
+
+.feedback.wrong {
+  color: #B00020;
+}
+
+/* SOLUTION */
+.solution {
+  margin-top: 12px;
+  padding: 14px;
+  background: #FFFFFF;
+  border-radius: 12px;
+  font-size: 14px;
+}
+
+/* NEXT */
+.next-area {
+  margin-top: 16px;
+}
