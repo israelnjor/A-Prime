@@ -19,6 +19,14 @@
     <div class="top-info">
       <span class="topic-name">Algebra</span>
       <span class="question-count">Practice</span>
+      <span class="question-count" id="questionCount">
+  Question 1 of 20
+   </span>
+
+   <div class="progress-wrapper">
+  <div class="progress-bar" id="progressBar"></div>
+   </div>
+
     </div>
   </header>
 
@@ -58,6 +66,21 @@
         Next question →
       </button>
     </div>
+
+      <!-- END SCREEN -->
+   <section class="card end-screen hidden" id="endScreen">
+   <h3>Nice work 👏🏽</h3>
+   <p class="end-message">
+      You’ve completed this practice set. Consistency builds mastery.
+   </p>
+
+   <div class="end-actions">
+      <button class="secondary-btn" id="retryBtn">🔁 Retry</button>
+      <button class="primary-btn" id="continueBtn">▶ Continue</button>
+      <button class="link-btn" id="backBtn">← Back to Algebra</button>
+   </div>
+   </section>
+
 
   </main>
 

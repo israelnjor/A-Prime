@@ -85,3 +85,42 @@
 .next-area {
   margin-top: 16px;
 }
+.progress-wrapper {
+  width: 100%;
+  height: 6px;
+  background: #e6e6e6;
+  border-radius: 10px;
+  margin-top: 6px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #6a5acd, #9f7aea);
+  transition: width 0.4s ease;
+}
+.end-screen {
+  text-align: center;
+  animation: fadeIn 0.4s ease;
+}
+
+.end-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.link-btn {
+  background: none;
+  border: none;
+  color: var(--primary);
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

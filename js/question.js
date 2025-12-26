@@ -1,6 +1,12 @@
+const algebraFlow = [
+  "quadratic",
+  "linear",
+  "simultaneous",
+  "inequalities"
+];
+
 /***********************
- * 
- * URL PARAMS
+ * URL PARAMS (MUST BE FIRST)
  ************************/
 function getQueryParams() {
   const params = new URLSearchParams(window.location.search);
@@ -12,15 +18,15 @@ function getQueryParams() {
 
 const { topic, subtopic } = getQueryParams();
 
-/* DEBUG (NOW SAFE) */
+/***********************
+ * DEBUG LOGS
+ ************************/
 console.log("topic:", topic);
 console.log("subtopic:", subtopic);
 console.log("algebraQuestions:", window.algebraQuestions);
-console.log("subtopic data:", window.algebraQuestions?.[subtopic]);
-
 
 /***********************
- * STORAGE KEY
+ * STORAGE KEYS
  ************************/
 const STORAGE_KEY = `aprime_${topic}_${subtopic}_progress`;
 
@@ -30,22 +36,34 @@ const STORAGE_KEY = `aprime_${topic}_${subtopic}_progress`;
 let questions = [];
 
 if (topic === "algebra" && window.algebraQuestions) {
-  if (algebraQuestions[subtopic]) {
-    questions = algebraQuestions[subtopic];
+  questions = window.algebraQuestions[subtopic] || [];
+}
+
+if (!questions.length) {
+  alert("No questions found for this topic.");
+  console.error("Missing questions for:", topic, subtopic);
+}
+
+/***********************
+ * SHUFFLE (RANDOMIZATION)
+ ************************/
+function shuffleQuestions(array) {
+  for (let i = array.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [array[i], array[j]] = [array[j], array[i]];
   }
 }
 
-
-if (!questions || questions.length === 0) {
-  alert("No questions found for this topic.");
-}
+// Shuffle ONCE per session
+shuffleQuestions(questions);
 
 /***********************
  * STATE
  ************************/
-let currentQuestionIndex = 0;
+let currentIndex = 0;
 let selectedOptionIndex = null;
 let hasChecked = false;
+let score = 0;
 
 /***********************
  * DOM ELEMENTS
@@ -58,22 +76,34 @@ const feedbackText = document.querySelector(".feedback-text");
 const solutionBox = document.querySelector(".solution");
 const solutionText = document.querySelector(".solution-text");
 const nextArea = document.querySelector(".next-area");
+const endScreen = document.getElementById("endScreen");
+const retryBtn = document.getElementById("retryBtn");
+const continueBtn = document.getElementById("continueBtn");
+const backBtn = document.getElementById("backBtn");
+
+
+const questionCountEl = document.getElementById("questionCount");
+const progressBarEl = document.getElementById("progressBar");
 
 /***********************
- * PROGRESS
+ * PROGRESS STORAGE
  ************************/
 function loadProgress() {
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     const data = JSON.parse(saved);
-    currentQuestionIndex = data.currentQuestionIndex || 0;
+    currentIndex = data.currentIndex || 0;
+    score = data.score || 0;
   }
 }
 
 function saveProgress() {
   localStorage.setItem(
     STORAGE_KEY,
-    JSON.stringify({ currentQuestionIndex })
+    JSON.stringify({
+      currentIndex,
+      score
+    })
   );
 }
 
@@ -81,19 +111,27 @@ function saveProgress() {
  * LOAD QUESTION
  ************************/
 function loadQuestion() {
-  const q = questions[currentQuestionIndex];
+  const q = questions[currentIndex];
+  if (!q) return;
 
   selectedOptionIndex = null;
   hasChecked = false;
 
+  questionText.textContent = q.question;
   optionsContainer.innerHTML = "";
+
   feedbackBox.classList.add("hidden");
   solutionBox.classList.add("hidden");
   nextArea.classList.add("hidden");
   checkBtn.classList.add("hidden");
   checkBtn.disabled = true;
 
-  questionText.textContent = q.question;
+  // Question counter
+  questionCountEl.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
+
+  // Progress bar
+  const progress = ((currentIndex + 1) / questions.length) * 100;
+  progressBarEl.style.width = `${progress}%`;
 
   q.options.forEach((text, index) => {
     const btn = document.createElement("button");
@@ -129,12 +167,13 @@ checkBtn.addEventListener("click", () => {
 
   hasChecked = true;
 
-  const q = questions[currentQuestionIndex];
+  const q = questions[currentIndex];
   const isCorrect = selectedOptionIndex === q.answer;
 
   feedbackBox.classList.remove("hidden", "correct", "wrong");
 
   if (isCorrect) {
+    score++;
     feedbackBox.classList.add("correct");
     feedbackText.textContent = "Correct ✔ Keep going.";
   } else {
@@ -155,15 +194,51 @@ checkBtn.addEventListener("click", () => {
  * NEXT QUESTION
  ************************/
 nextArea.addEventListener("click", () => {
-  currentQuestionIndex++;
+  currentIndex++;
 
-  if (currentQuestionIndex < questions.length) {
+  if (currentIndex < questions.length) {
     loadQuestion();
   } else {
     localStorage.removeItem(STORAGE_KEY);
-    alert("End of this practice set 👏🏽");
+    showEndScreen();
   }
 });
+
+// Helper: Get next subtopic
+function getNextSubtopic() {
+  const index = algebraFlow.indexOf(subtopic);
+  return algebraFlow[index + 1] || null;
+}
+
+function showEndScreen() {
+  document.querySelector(".question-card").classList.add("hidden");
+  optionsContainer.classList.add("hidden");
+  document.querySelector(".action-area").classList.add("hidden");
+  feedbackBox.classList.add("hidden");
+  solutionBox.classList.add("hidden");
+  nextArea.classList.add("hidden");
+
+  endScreen.classList.remove("hidden");
+}
+
+retryBtn.addEventListener("click", () => {
+  localStorage.removeItem(STORAGE_KEY);
+  window.location.reload();
+});
+
+continueBtn.addEventListener("click", () => {
+  const next = getNextSubtopic();
+  if (next) {
+    window.location.href = `question.html?topic=algebra&subtopic=${next}`;
+  } else {
+    window.location.href = "algebra.html";
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  window.location.href = "algebra.html";
+});
+
 
 /***********************
  * INIT

@@ -3,7 +3,7 @@
  * Exam-standard, original questions
  ***********************************/
 
-const algebraQuestions = {
+window.algebraQuestions = {
   quadratic: [
     {
       question: "Solve: 2x² − 5x − 3 = 0",
