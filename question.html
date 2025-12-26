@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>A-Prime | Question</title>
+  <title>A-Prime | Practice</title>
 
-  <!-- Global styles -->
+  <!-- Styles -->
   <link rel="stylesheet" href="css/main.css" />
   <link rel="stylesheet" href="css/cards.css" />
   <link rel="stylesheet" href="css/question.css" />
@@ -14,10 +14,11 @@
 
   <!-- TOP BAR -->
   <header class="top-bar">
-    <button class="back-btn">←</button>
+    <button class="back-btn" onclick="history.back()">←</button>
+
     <div class="top-info">
       <span class="topic-name">Algebra</span>
-      <span class="question-count">Question 1 of 50</span>
+      <span class="question-count">Practice</span>
     </div>
   </header>
 
@@ -26,33 +27,26 @@
 
     <!-- QUESTION CARD -->
     <section class="card question-card">
-      <p class="question-number">Question 1</p>
-      <p class="question-text">
-        Solve: 2x² − 5x − 3 = 0
-      </p>
+      <p class="question-number">Question</p>
+      <p class="question-text"></p>
     </section>
 
     <!-- OPTIONS -->
-    <section class="options">
-      <button class="option">A. x = 3 or −½</button>
-      <button class="option">B. x = −3 or ½</button>
-      <button class="option">C. x = 1 or −3</button>
-      <button class="option">D. x = ½ or −3</button>
-    </section>
+    <section class="options"></section>
 
     <!-- ACTION -->
     <div class="action-area">
-      <button class="primary-btn" disabled>
+      <button class="primary-btn hidden" disabled>
         Check answer
       </button>
     </div>
 
-    <!-- FEEDBACK (hidden by default) -->
+    <!-- FEEDBACK -->
     <section class="feedback hidden">
       <p class="feedback-text"></p>
     </section>
 
-    <!-- SOLUTION (hidden by default) -->
+    <!-- SOLUTION -->
     <section class="solution hidden">
       <h4>Solution</h4>
       <p class="solution-text"></p>
@@ -67,7 +61,9 @@
 
   </main>
 
-  <!-- Scripts -->
-  <script src="js/question.js"></script>
+  <!-- SCRIPTS (ORDER MATTERS) -->
+  <script src="./js/data/algebra.js"></script>
+  <script src="./js/question.js"></script>
+
 </body>
 </html>

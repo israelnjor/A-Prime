@@ -1,23 +1,44 @@
 /***********************
- * SAMPLE QUESTION DATA
- * (Later this will come
- * from js/data/algebra.js)
+ * 
+ * URL PARAMS
  ************************/
-const questions = [
-  {
-    id: 1,
-    text: "Solve: 2x² − 5x − 3 = 0",
-    options: [
-      "x = 3 or −½",
-      "x = −3 or ½",
-      "x = 1 or −3",
-      "x = ½ or −3"
-    ],
-    correctIndex: 3,
-    solution:
-      "Factorise: (2x + 1)(x − 3) = 0. Therefore x = ½ or x = −3."
+function getQueryParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    topic: params.get("topic"),
+    subtopic: params.get("subtopic")
+  };
+}
+
+const { topic, subtopic } = getQueryParams();
+
+/* DEBUG (NOW SAFE) */
+console.log("topic:", topic);
+console.log("subtopic:", subtopic);
+console.log("algebraQuestions:", window.algebraQuestions);
+console.log("subtopic data:", window.algebraQuestions?.[subtopic]);
+
+
+/***********************
+ * STORAGE KEY
+ ************************/
+const STORAGE_KEY = `aprime_${topic}_${subtopic}_progress`;
+
+/***********************
+ * QUESTION SOURCE
+ ************************/
+let questions = [];
+
+if (topic === "algebra" && window.algebraQuestions) {
+  if (algebraQuestions[subtopic]) {
+    questions = algebraQuestions[subtopic];
   }
-];
+}
+
+
+if (!questions || questions.length === 0) {
+  alert("No questions found for this topic.");
+}
 
 /***********************
  * STATE
@@ -39,16 +60,32 @@ const solutionText = document.querySelector(".solution-text");
 const nextArea = document.querySelector(".next-area");
 
 /***********************
+ * PROGRESS
+ ************************/
+function loadProgress() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    const data = JSON.parse(saved);
+    currentQuestionIndex = data.currentQuestionIndex || 0;
+  }
+}
+
+function saveProgress() {
+  localStorage.setItem(
+    STORAGE_KEY,
+    JSON.stringify({ currentQuestionIndex })
+  );
+}
+
+/***********************
  * LOAD QUESTION
  ************************/
 function loadQuestion() {
   const q = questions[currentQuestionIndex];
 
-  // Reset state
   selectedOptionIndex = null;
   hasChecked = false;
 
-  // Reset UI
   optionsContainer.innerHTML = "";
   feedbackBox.classList.add("hidden");
   solutionBox.classList.add("hidden");
@@ -56,17 +93,14 @@ function loadQuestion() {
   checkBtn.classList.add("hidden");
   checkBtn.disabled = true;
 
-  // Load question text
-  questionText.textContent = q.text;
+  questionText.textContent = q.question;
 
-  // Load options
-  q.options.forEach((optionText, index) => {
+  q.options.forEach((text, index) => {
     const btn = document.createElement("button");
     btn.className = "option";
-    btn.textContent = optionText;
+    btn.textContent = text;
 
     btn.addEventListener("click", () => selectOption(index, btn));
-
     optionsContainer.appendChild(btn);
   });
 }
@@ -77,16 +111,12 @@ function loadQuestion() {
 function selectOption(index, button) {
   if (hasChecked) return;
 
-  // Clear previous selection
-  document.querySelectorAll(".option").forEach(opt =>
-    opt.classList.remove("selected")
-  );
+  document.querySelectorAll(".option")
+    .forEach(opt => opt.classList.remove("selected"));
 
-  // Set new selection
   selectedOptionIndex = index;
   button.classList.add("selected");
 
-  // Show Check Answer button
   checkBtn.classList.remove("hidden");
   checkBtn.disabled = false;
 }
@@ -100,31 +130,25 @@ checkBtn.addEventListener("click", () => {
   hasChecked = true;
 
   const q = questions[currentQuestionIndex];
-  const isCorrect = selectedOptionIndex === q.correctIndex;
+  const isCorrect = selectedOptionIndex === q.answer;
 
-  // Show feedback
-  feedbackBox.classList.remove("hidden");
-  feedbackBox.classList.remove("correct", "wrong");
+  feedbackBox.classList.remove("hidden", "correct", "wrong");
 
   if (isCorrect) {
     feedbackBox.classList.add("correct");
-    feedbackText.textContent = "Correct ✔ Good work. Keep going.";
+    feedbackText.textContent = "Correct ✔ Keep going.";
   } else {
     feedbackBox.classList.add("wrong");
     feedbackText.textContent = "Not quite. Let’s see how to solve it.";
-
-    // Show solution immediately
     solutionBox.classList.remove("hidden");
     solutionText.textContent = q.solution;
   }
 
-  // Lock options
-  document.querySelectorAll(".option").forEach(opt =>
-    opt.setAttribute("disabled", true)
-  );
+  document.querySelectorAll(".option")
+    .forEach(opt => opt.disabled = true);
 
-  // Show next button
   nextArea.classList.remove("hidden");
+  saveProgress();
 });
 
 /***********************
@@ -136,11 +160,13 @@ nextArea.addEventListener("click", () => {
   if (currentQuestionIndex < questions.length) {
     loadQuestion();
   } else {
-    alert("End of questions for now 🙂");
+    localStorage.removeItem(STORAGE_KEY);
+    alert("End of this practice set 👏🏽");
   }
 });
 
 /***********************
  * INIT
  ************************/
+loadProgress();
 loadQuestion();
