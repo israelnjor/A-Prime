@@ -15,7 +15,7 @@ body {
 /* CONTAINER */
 .container {
   padding: 16px;
-  padding-top: 72px; /* space for fixed top bar */
+  padding-top: 8px; /* space for fixed top bar */
 }
 
 /* BUTTONS */
