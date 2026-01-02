@@ -1,3 +1,6 @@
+/***********************
+ * ALGEBRA FLOW
+ ************************/
 const algebraFlow = [
   "quadratic",
   "linear",
@@ -19,16 +22,10 @@ function getQueryParams() {
 const { topic, subtopic } = getQueryParams();
 
 /***********************
- * DEBUG LOGS
- ************************/
-console.log("topic:", topic);
-console.log("subtopic:", subtopic);
-console.log("algebraQuestions:", window.algebraQuestions);
-
-/***********************
  * STORAGE KEYS
  ************************/
 const STORAGE_KEY = `aprime_${topic}_${subtopic}_progress`;
+const MASTERY_KEY = `aprime_mastery_${topic}_${subtopic}`;
 
 /***********************
  * QUESTION SOURCE
@@ -39,23 +36,16 @@ if (topic === "algebra" && window.algebraQuestions) {
   questions = window.algebraQuestions[subtopic] || [];
 }
 
-if (!questions.length) {
-  alert("No questions found for this topic.");
-  console.error("Missing questions for:", topic, subtopic);
-}
-
 /***********************
- * SHUFFLE (RANDOMIZATION)
+ * SHUFFLE QUESTIONS (ONCE)
  ************************/
-function shuffleQuestions(array) {
+function shuffle(array) {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
     [array[i], array[j]] = [array[j], array[i]];
   }
 }
-
-// Shuffle ONCE per session
-shuffleQuestions(questions);
+shuffle(questions);
 
 /***********************
  * STATE
@@ -63,30 +53,39 @@ shuffleQuestions(questions);
 let currentIndex = 0;
 let selectedOptionIndex = null;
 let hasChecked = false;
+
 let score = 0;
+let attempted = 0;
+
+let mastery = {
+  attempted: 0,
+  correct: 0
+};
 
 /***********************
  * DOM ELEMENTS
  ************************/
 const questionText = document.querySelector(".question-text");
 const optionsContainer = document.querySelector(".options");
-const checkBtn = document.querySelector(".primary-btn");
+const actionBtn = document.querySelector(".primary-btn");
+
 const feedbackBox = document.querySelector(".feedback");
 const feedbackText = document.querySelector(".feedback-text");
 const solutionBox = document.querySelector(".solution");
 const solutionText = document.querySelector(".solution-text");
-const nextArea = document.querySelector(".next-area");
-const endScreen = document.getElementById("endScreen");
-const retryBtn = document.getElementById("retryBtn");
-const continueBtn = document.getElementById("continueBtn");
-const backBtn = document.getElementById("backBtn");
-
 
 const questionCountEl = document.getElementById("questionCount");
 const progressBarEl = document.getElementById("progressBar");
 
+const endScreen = document.getElementById("endScreen");
+const endMessage = document.querySelector(".end-message");
+
+const retryBtn = document.getElementById("retryBtn");
+const continueBtn = document.getElementById("continueBtn");
+const backBtn = document.getElementById("backBtn");
+
 /***********************
- * PROGRESS STORAGE
+ * LOAD / SAVE PROGRESS
  ************************/
 function loadProgress() {
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -94,17 +93,27 @@ function loadProgress() {
     const data = JSON.parse(saved);
     currentIndex = data.currentIndex || 0;
     score = data.score || 0;
+    attempted = data.attempted || 0;
   }
 }
 
 function saveProgress() {
   localStorage.setItem(
     STORAGE_KEY,
-    JSON.stringify({
-      currentIndex,
-      score
-    })
+    JSON.stringify({ currentIndex, score, attempted })
   );
+}
+
+/***********************
+ * LOAD / SAVE MASTERY
+ ************************/
+function loadMastery() {
+  const saved = localStorage.getItem(MASTERY_KEY);
+  if (saved) mastery = JSON.parse(saved);
+}
+
+function saveMastery() {
+  localStorage.setItem(MASTERY_KEY, JSON.stringify(mastery));
 }
 
 /***********************
@@ -122,22 +131,21 @@ function loadQuestion() {
 
   feedbackBox.classList.add("hidden");
   solutionBox.classList.add("hidden");
-  nextArea.classList.add("hidden");
-  checkBtn.classList.add("hidden");
-  checkBtn.disabled = true;
 
-  // Question counter
-  questionCountEl.textContent = `Question ${currentIndex + 1} of ${questions.length}`;
+  actionBtn.textContent = "Check answer";
+  actionBtn.disabled = true;
+  actionBtn.classList.add("hidden");
 
-  // Progress bar
-  const progress = ((currentIndex + 1) / questions.length) * 100;
-  progressBarEl.style.width = `${progress}%`;
+  questionCountEl.textContent =
+    `Question ${currentIndex + 1} of ${questions.length}`;
+
+  progressBarEl.style.width =
+    `${((currentIndex + 1) / questions.length) * 100}%`;
 
   q.options.forEach((text, index) => {
     const btn = document.createElement("button");
     btn.className = "option";
     btn.textContent = text;
-
     btn.addEventListener("click", () => selectOption(index, btn));
     optionsContainer.appendChild(btn);
   });
@@ -155,17 +163,30 @@ function selectOption(index, button) {
   selectedOptionIndex = index;
   button.classList.add("selected");
 
-  checkBtn.classList.remove("hidden");
-  checkBtn.disabled = false;
+  actionBtn.classList.remove("hidden");
+  actionBtn.disabled = false;
 }
+
+/***********************
+ * SMART BUTTON
+ ************************/
+actionBtn.addEventListener("click", () => {
+  if (!hasChecked) {
+    checkAnswer();
+  } else {
+    goNext();
+  }
+});
 
 /***********************
  * CHECK ANSWER
  ************************/
-checkBtn.addEventListener("click", () => {
+function checkAnswer() {
   if (selectedOptionIndex === null) return;
 
   hasChecked = true;
+  attempted++;
+  mastery.attempted++;
 
   const q = questions[currentIndex];
   const isCorrect = selectedOptionIndex === q.answer;
@@ -174,6 +195,7 @@ checkBtn.addEventListener("click", () => {
 
   if (isCorrect) {
     score++;
+    mastery.correct++;
     feedbackBox.classList.add("correct");
     feedbackText.textContent = "Correct ✔ Keep going.";
   } else {
@@ -186,14 +208,16 @@ checkBtn.addEventListener("click", () => {
   document.querySelectorAll(".option")
     .forEach(opt => opt.disabled = true);
 
-  nextArea.classList.remove("hidden");
+  actionBtn.textContent = "Continue →";
+
   saveProgress();
-});
+  saveMastery();
+}
 
 /***********************
  * NEXT QUESTION
  ************************/
-nextArea.addEventListener("click", () => {
+function goNext() {
   currentIndex++;
 
   if (currentIndex < questions.length) {
@@ -202,25 +226,78 @@ nextArea.addEventListener("click", () => {
     localStorage.removeItem(STORAGE_KEY);
     showEndScreen();
   }
-});
+}
 
-// Helper: Get next subtopic
+/***********************
+ * HELPERS
+ ************************/
 function getNextSubtopic() {
   const index = algebraFlow.indexOf(subtopic);
   return algebraFlow[index + 1] || null;
 }
 
+function hasQuestions(sub) {
+  return (
+    window.algebraQuestions &&
+    window.algebraQuestions[sub] &&
+    window.algebraQuestions[sub].length > 0
+  );
+}
+
+function formatSubtopic(name) {
+  return name
+    .replace(/_/g, " ")
+    .replace(/\b\w/g, c => c.toUpperCase());
+}
+
+/***********************
+ * END SCREEN
+ ************************/
 function showEndScreen() {
   document.querySelector(".question-card").classList.add("hidden");
   optionsContainer.classList.add("hidden");
   document.querySelector(".action-area").classList.add("hidden");
   feedbackBox.classList.add("hidden");
   solutionBox.classList.add("hidden");
-  nextArea.classList.add("hidden");
 
+  const sessionPercent =
+    Math.round((score / questions.length) * 100);
+
+  const masteryPercent = mastery.attempted
+    ? Math.round((mastery.correct / mastery.attempted) * 100)
+    : 0;
+
+  const nextSubtopic = getNextSubtopic();
+  const nextExists = nextSubtopic && hasQuestions(nextSubtopic);
+
+  let message = `Well done 👏  
+You should be proud of yourself for finishing this set.
+
+You scored ${score} out of ${questions.length} (${sessionPercent}%).
+Your mastery so far is ${masteryPercent}%.`;
+
+  if (nextExists) {
+    message += `
+
+Next up: ${formatSubtopic(nextSubtopic)}.
+Take a breather, then continue when ready 💪🏽`;
+  } else {
+    message += `
+
+New questions are coming very soon 🔥  
+Next release: ${nextSubtopic ? formatSubtopic(nextSubtopic) : "New topic"}
+
+While you wait, this is a great chance to revisit earlier questions
+and push all your topics to 100% mastery 💯`;
+  }
+
+  endMessage.textContent = message;
   endScreen.classList.remove("hidden");
 }
 
+/***********************
+ * END SCREEN BUTTONS
+ ************************/
 retryBtn.addEventListener("click", () => {
   localStorage.removeItem(STORAGE_KEY);
   window.location.reload();
@@ -229,7 +306,8 @@ retryBtn.addEventListener("click", () => {
 continueBtn.addEventListener("click", () => {
   const next = getNextSubtopic();
   if (next) {
-    window.location.href = `question.html?topic=algebra&subtopic=${next}`;
+    window.location.href =
+      `question.html?topic=algebra&subtopic=${next}`;
   } else {
     window.location.href = "algebra.html";
   }
@@ -239,9 +317,9 @@ backBtn.addEventListener("click", () => {
   window.location.href = "algebra.html";
 });
 
-
 /***********************
  * INIT
  ************************/
 loadProgress();
+loadMastery();
 loadQuestion();

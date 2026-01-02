@@ -24,27 +24,16 @@
       Practice exam-standard algebra questions. No pressure — just growth.
     </p>
 
-    <!-- SUBTOPIC CARD -->
-    <section class="card">
-      <h3>Quadratic Equations</h3>
-      <p class="muted-text">
-        Factorisation, roots, and exam-style reasoning.
-      </p>
-
-      <a
-        href="question.html?topic=algebra&subtopic=quadratic"
-        class="primary-btn"
-        style="display:block; text-align:center; text-decoration:none;"
-      >
-        Start practice →
-      </a>
-    </section>
-
-    <!-- SUBTOPIC CARD -->
+    <!-- LINEAR -->
     <section class="card">
       <h3>Linear Equations</h3>
       <p class="muted-text">
         Simple and direct algebra foundations.
+      </p>
+
+      <!-- MASTERY DISPLAY -->
+      <p class="mastery-text" id="mastery-linear">
+        Not practiced yet
       </p>
 
       <a
@@ -55,8 +44,78 @@
         Start practice →
       </a>
     </section>
+    <!-- QUADRATIC -->
+    <section class="card">
+      <h3>Quadratic Equations</h3>
+      <p class="muted-text">
+        Factorisation, roots, and exam-style reasoning.
+      </p>
+
+      <!-- MASTERY DISPLAY -->
+      <p class="mastery-text" id="mastery-quadratic">
+        Not practiced yet
+      </p>
+
+      <a
+        href="question.html?topic=algebra&subtopic=quadratic"
+        class="primary-btn"
+        style="display:block; text-align:center; text-decoration:none;"
+      >
+        Start practice →
+      </a>
+    </section>
+    <section class="card">
+      <!-- SIMULTANEOUS EQUATIONS -->
+      <h3>Simultaneous Equations</h3>
+      <p class="muted-text">
+        Solve systems of equations with two variables.
+      </p>
+
+      <!-- MASTERY DISPLAY -->
+      <p class="mastery-text" id="mastery-simultaneous">
+        Not practiced yet
+      </p>
+
+      <a
+        href="question.html?topic=algebra&subtopic=simultaneous"
+        class="primary-btn"
+        style="display:block; text-align:center; text-decoration:none;"
+      >
+        Start practice →
+      </a>
+    </section>
 
   </main>
+
+  <!-- DASHBOARD LOGIC -->
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const subtopics = ["quadratic", "linear", "simultaneous"];
+
+      subtopics.forEach(subtopic => {
+        const key = `aprime_mastery_algebra_${subtopic}`;
+        const data = localStorage.getItem(key);
+
+        const masteryEl =
+          document.getElementById(`mastery-${subtopic}`);
+
+        if (!masteryEl) return;
+
+        if (!data) {
+          masteryEl.textContent = "Not practiced yet";
+          masteryEl.style.opacity = "0.6";
+          return;
+        }
+
+        const { attempted, correct } = JSON.parse(data);
+        const percent = attempted
+          ? Math.round((correct / attempted) * 100)
+          : 0;
+
+        masteryEl.textContent = `${percent}% mastered`;
+      });
+    });
+  </script>
 
 </body>
 </html>
