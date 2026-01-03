@@ -4,6 +4,114 @@
  ***********************************/
 
 window.algebraQuestions = {
+     linear: [
+    {
+      question: "Solve: 3x − 12 = 0",
+      options: ["A. x = 4", "B. x = −4", "C. x = 12", "D. x = −12"],
+      answer: 0,
+      solution:
+        "3x = 12, therefore x = 4."
+    },
+    {
+      question: "Solve: 3x = 15",
+      options: [
+         "x = 5",
+         "x = 3",
+         "x = 15",
+         "x = 45"
+      ],
+      answer: 0,
+      solution: "Divide both sides by 3: x = 15 ÷ 3 = 5."
+   },
+   {
+      question: "Solve: 3x = 15",
+      options: [
+         "x = 5",
+         "x = 3",
+         "x = 15",
+         "x = 45"
+      ],
+      answer: 0,
+      solution: "Divide both sides by 3: x = 15 ÷ 3 = 5."
+   },
+   {
+      question: "Solve: 2x + 5 = 13",
+      options: [
+         "x = 4",
+         "x = 9",
+         "x = 8",
+         "x = 3"
+      ],
+      answer: 0,
+      solution: "Subtract 5: 2x = 8 → divide by 2 → x = 4."
+   },
+   {
+      question: "Solve: 5x − 3 = 2x + 9",
+      options: [
+         "x = 4",
+         "x = 2",
+         "x = −4",
+         "x = 6"
+      ],
+      answer: 0,
+      solution: "Bring x terms together: 5x − 2x = 9 + 3 → 3x = 12 → x = 4."
+   },
+   {
+      question: "Solve: x/3 + 4 = 7",
+      options: [
+         "x = 9",
+         "x = 3",
+         "x = 21",
+         "x = 1"
+      ],
+      answer: 0,
+      solution: "Subtract 4: x/3 = 3 → multiply by 3 → x = 9."
+   },
+   {
+      question: "Solve: 2(x + 3) = 14",
+      options: [
+         "x = 4",
+         "x = 7",
+         "x = 5",
+         "x = 11"
+      ],
+      answer: 0,
+      solution: "Expand: 2x + 6 = 14 → 2x = 8 → x = 4."
+   },
+   {
+      question: "Solve: 4 − x = 9",
+      options: [
+         "x = −5",
+         "x = 5",
+         "x = −13",
+         "x = 13"
+      ],
+      answer: 0,
+      solution: "Subtract 4: −x = 5 → multiply by −1 → x = −5."
+   },
+   {
+      question: "Solve: x/2 = 5 − x/4",
+      options: [
+         "x = 20/3",
+         "x = 4",
+         "x = 16/3",
+         "x = 10"
+      ],
+      answer: 0,
+      solution: "Multiply through by 4: 2x = 20 − x → 3x = 20 → x = 20/3."
+   },
+   {
+      question: "The sum of a number and 7 is 19. Find the number.",
+      options: [
+         "12",
+         "26",
+         "7",
+         "19"
+      ],
+      answer: 0,
+      solution: "Let the number be x: x + 7 = 19 → x = 12."
+   },
+  ],
   quadratic: [
     {
       question: "Solve: 2x² − 5x − 3 = 0",
@@ -257,115 +365,6 @@ window.algebraQuestions = {
 
   ],
 
-  linear: [
-    {
-      question: "Solve: 3x − 12 = 0",
-      options: ["A. x = 4", "B. x = −4", "C. x = 12", "D. x = −12"],
-      answer: 0,
-      solution:
-        "3x = 12, therefore x = 4."
-    },
-    {
-      question: "Solve: 3x = 15",
-      options: [
-         "x = 5",
-         "x = 3",
-         "x = 15",
-         "x = 45"
-      ],
-      answer: 0,
-      solution: "Divide both sides by 3: x = 15 ÷ 3 = 5."
-   },
-   {
-      question: "Solve: 3x = 15",
-      options: [
-         "x = 5",
-         "x = 3",
-         "x = 15",
-         "x = 45"
-      ],
-      answer: 0,
-      solution: "Divide both sides by 3: x = 15 ÷ 3 = 5."
-   },
-   {
-      question: "Solve: 2x + 5 = 13",
-      options: [
-         "x = 4",
-         "x = 9",
-         "x = 8",
-         "x = 3"
-      ],
-      answer: 0,
-      solution: "Subtract 5: 2x = 8 → divide by 2 → x = 4."
-   },
-   {
-      question: "Solve: 5x − 3 = 2x + 9",
-      options: [
-         "x = 4",
-         "x = 2",
-         "x = −4",
-         "x = 6"
-      ],
-      answer: 0,
-      solution: "Bring x terms together: 5x − 2x = 9 + 3 → 3x = 12 → x = 4."
-   },
-   {
-      question: "Solve: x/3 + 4 = 7",
-      options: [
-         "x = 9",
-         "x = 3",
-         "x = 21",
-         "x = 1"
-      ],
-      answer: 0,
-      solution: "Subtract 4: x/3 = 3 → multiply by 3 → x = 9."
-   },
-   {
-      question: "Solve: 2(x + 3) = 14",
-      options: [
-         "x = 4",
-         "x = 7",
-         "x = 5",
-         "x = 11"
-      ],
-      answer: 0,
-      solution: "Expand: 2x + 6 = 14 → 2x = 8 → x = 4."
-   },
-   {
-      question: "Solve: 4 − x = 9",
-      options: [
-         "x = −5",
-         "x = 5",
-         "x = −13",
-         "x = 13"
-      ],
-      answer: 0,
-      solution: "Subtract 4: −x = 5 → multiply by −1 → x = −5."
-   },
-   {
-      question: "Solve: x/2 = 5 − x/4",
-      options: [
-         "x = 20/3",
-         "x = 4",
-         "x = 5",
-         "x = 10"
-      ],
-      answer: 0,
-      solution: "Multiply through by 4: 2x = 20 − x → 3x = 20 → x = 20/3."
-   },
-   {
-      question: "The sum of a number and 7 is 19. Find the number.",
-      options: [
-         "12",
-         "26",
-         "7",
-         "19"
-      ],
-      answer: 0,
-      solution: "Let the number be x: x + 7 = 19 → x = 12."
-   },
-  ],
-
     simultaneous: [
     {
       question: "Solve: x + y = 10 and 2x - y = 3",
@@ -417,7 +416,7 @@ window.algebraQuestions = {
     {
       question: "Solve: x + y = 10 and 2x - y = 3",
       options: [
-        "x = 3, y = 7",
+        "x = 13/3, y = -17/3",
         "x = 4, y = 6",
         "x = 13/3, y = 17/3",
         "x = 5, y = 5"
@@ -432,7 +431,7 @@ window.algebraQuestions = {
         "x = 2, y = 1",
         "x = 14/5, y = 9/5",
         "x = 3, y = 2",
-        "x = 4, y = 0"
+        "x = -14/5, y = 7/5"
       ],
       answer: 1,
       solution: "x - y = 1 → x = y + 1. Substitute → 3(y+1) + 2y = 12 → 5y + 3 = 12 → y = 9/5, x = 14/5."
@@ -453,10 +452,10 @@ window.algebraQuestions = {
     {
       question: "Solve: x - y = 4 and 2x + y = 7",
       options: [
-        "x = 2, y = -2",
+        "x = -11/2, y = 1/3",
         "x = 3, y = -1",
         "x = 11/3, y = -1/3",
-        "x = 4, y = 0"
+        "x = 11/3, y = 0"
       ],
       answer: 2,
       solution: "x - y = 4 → x = y + 4. Substitute → 2(y+4) + y = 7 → 3y + 8 = 7 → y = -1/3, x = 11/3."
@@ -467,7 +466,7 @@ window.algebraQuestions = {
       options: [
         "x = 4, y = 0",
         "x = 28/11, y = 20/11",
-        "x = 2, y = 5",
+        "x = 20/11, y = 28/11",
         "x = 1, y = 7.5"
       ],
       answer: 1,
