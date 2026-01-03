@@ -2,8 +2,8 @@
  * ALGEBRA FLOW
  ************************/
 const algebraFlow = [
+ "linear",
   "quadratic",
-  "linear",
   "simultaneous",
   "inequalities"
 ];
@@ -270,29 +270,74 @@ function showEndScreen() {
   const nextSubtopic = getNextSubtopic();
   const nextExists = nextSubtopic && hasQuestions(nextSubtopic);
 
-  let message = `Well done 👏  
-You should be proud of yourself for finishing this set.
+//   let message = `Well done 👏  
+// You should be proud of yourself for finishing this set.
 
-You scored ${score} out of ${questions.length} (${sessionPercent}%).
-Your mastery so far is ${masteryPercent}%.`;
+// You scored ${score} out of ${questions.length} (${sessionPercent}%).
+// Your mastery so far is ${masteryPercent}%.`;
 
+//   if (nextExists) {
+//     message += `
+
+// Next up: ${formatSubtopic(nextSubtopic)}.
+// Take a breather, then continue when ready 💪🏽`;
+//   } else {
+//     message += `
+
+// New questions are coming very soon 🔥  
+// Next release: ${nextSubtopic ? formatSubtopic(nextSubtopic) : "New topic"}
+
+// While you wait, this is a great chance to revisit earlier questions
+// and push all your topics to 100% mastery 💯`;
+//   }
+
+endMessage.innerHTML = `
+  <h3 style="margin-bottom:8px;">Well done 👏</h3>
+
+  <p style="margin-bottom:12px;">
+    You should be proud of yourself for finishing this set.
+  </p>
+
+  <p style="margin-bottom:12px;">
+    You scored <strong>${score}</strong> out of <strong>${questions.length}</strong>
+    (${sessionPercent}%).<br/>
+    Mastery so far: <strong>${masteryPercent}%</strong>
+  </p>
+
+  ${
+    nextExists
+      ? `
+        <div style="margin-top:16px;">
+          <p><strong>Next up:</strong> ${formatSubtopic(nextSubtopic)}</p>
+          <p style="opacity:0.75;">Take a breather, then continue when ready 💪🏽</p>
+        </div>
+      `
+      : `
+        <div style="margin-top:16px;">
+          <p><strong>New questions are coming very soon 🔥</strong></p>
+          <p>
+            Next release:
+            <strong>${nextSubtopic ? formatSubtopic(nextSubtopic) : "New topic"}</strong>
+          </p>
+          <p style="opacity:0.75; margin-top:8px;">
+            While you wait, revisit earlier questions and push all topics
+            to <strong>100% mastery</strong> 💯
+          </p>
+        </div>
+      `
+  }
+`;
+  endScreen.classList.remove("hidden");
+
+  // BUTTON VISIBILITY LOGIC
   if (nextExists) {
-    message += `
-
-Next up: ${formatSubtopic(nextSubtopic)}.
-Take a breather, then continue when ready 💪🏽`;
+    continueBtn.classList.remove("hidden");
+    continueBtn.disabled = false;
   } else {
-    message += `
-
-New questions are coming very soon 🔥  
-Next release: ${nextSubtopic ? formatSubtopic(nextSubtopic) : "New topic"}
-
-While you wait, this is a great chance to revisit earlier questions
-and push all your topics to 100% mastery 💯`;
+    continueBtn.classList.add("hidden");
   }
 
-  endMessage.textContent = message;
-  endScreen.classList.remove("hidden");
+  backBtn.classList.remove("hidden");
 }
 
 /***********************

@@ -12,21 +12,21 @@
 </head>
 <body>
 
-  <!-- TOP BAR -->
+  <!-- HEADER / PROGRESS -->
   <header class="top-bar">
     <button class="back-btn" onclick="history.back()">←</button>
 
     <div class="top-info">
       <span class="topic-name">Algebra</span>
       <span class="question-count">Practice</span>
+
       <span class="question-count" id="questionCount">
-  Question 1 of 20
-   </span>
+        Question 1 of 20
+      </span>
 
-   <div class="progress-wrapper">
-  <div class="progress-bar" id="progressBar"></div>
-   </div>
-
+      <div class="progress-wrapper">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
     </div>
   </header>
 
@@ -35,14 +35,14 @@
 
     <!-- QUESTION CARD -->
     <section class="card question-card">
-      <p class="question-number">Question</p>
+      <p class="question-number" style="margin-top: 30px;">Question</p>
       <p class="question-text"></p>
     </section>
 
     <!-- OPTIONS -->
     <section class="options"></section>
 
-    <!-- ACTION -->
+    <!-- ACTION BUTTON -->
     <div class="action-area">
       <button class="primary-btn hidden" disabled>
         Check answer
@@ -60,31 +60,25 @@
       <p class="solution-text"></p>
     </section>
 
-    <!-- NEXT -->
-    <!-- <div class="next-area hidden">
-      <button class="primary-btn">
-        Next question →
-      </button>
-    </div> -->
+    <!-- END SCREEN -->
+    <section class="card end-screen hidden" id="endScreen">
+      <h3>Well done 👏</h3>
 
-      <!-- END SCREEN -->
-   <section class="card end-screen hidden" id="endScreen">
-   <h3>Nice work 👏🏽</h3>
-   <p class="end-message">
-      You’ve completed this practice set. Consistency builds mastery.
-   </p>
-   <p class="end-message"></p>
+      <div class="end-message"></div>
 
-
-   <div class="end-actions">
-      <button class="secondary-btn" id="retryBtn">🔁 Retry</button>
-      <button class="primary-btn" id="continueBtn">▶ Continue</button>
-      <button class="link-btn" id="backBtn">← Back to Algebra</button>
-   </div>
-   </section>
-
+      <div class="end-actions">
+        <button class="secondary-btn" id="retryBtn">🔁 Retry</button>
+        <button class="primary-btn" id="continueBtn">▶ Continue</button>
+        <button class="link-btn" id="backBtn">← Back to Algebra</button>
+      </div>
+    </section>
 
   </main>
+
+<!-- FOOTER -->
+<footer class="footer" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 10;">
+   <p>© A-Prime · 2026 · @Israelnjor</p>
+</footer>
 
   <!-- SCRIPTS (ORDER MATTERS) -->
   <script src="./js/data/algebra.js"></script>

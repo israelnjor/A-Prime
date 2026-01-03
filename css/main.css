@@ -14,9 +14,20 @@ body {
 
 /* CONTAINER */
 .container {
-  padding: 16px;
-  padding-top: 8px; /* space for fixed top bar */
+  flex: 1;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px 16px;
 }
+.page-title {
+  margin-bottom: 12px;
+}
+
+.page-subtitle {
+  color: #5F6C7B;
+  margin-bottom: 24px;
+}
+
 
 /* BUTTONS */
 button {
@@ -44,4 +55,15 @@ button {
 /* HIDDEN */
 .hidden {
   display: none;
+}
+
+.footer {
+  padding: 16px 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #6B7280;
+  opacity: 0.85;
+  /* position: relative; */
+  /* z-index: 10; */
+  bottom: 0;
 }
