@@ -271,8 +271,7 @@ function showEndScreen() {
   const nextExists = nextSubtopic && hasQuestions(nextSubtopic);
 
 //   let message = `Well done 👏  
-// You should be proud of yourself for finishing this set.
-
+// You have successfully completed this set of questions
 // You scored ${score} out of ${questions.length} (${sessionPercent}%).
 // Your mastery so far is ${masteryPercent}%.`;
 
