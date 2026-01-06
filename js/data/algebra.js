@@ -7,54 +7,54 @@ window.algebraQuestions = {
      linear: [
     {
       question: "Solve: 3x − 12 = 0",
-      options: ["A. x = 4", "B. x = −4", "C. x = 12", "D. x = −12"],
-      answer: 0,
+      options: ["A. x = 12", "B. x = −4", "C. x = 4", "D. x = −12"],
+      answer: 2,
       solution:
         "3x = 12, therefore x = 4."
     },
     {
       question: "Solve: 3x = 15",
       options: [
-         "x = 5",
+         "x = 45",
          "x = 3",
          "x = 15",
-         "x = 45"
+         "x = 5"
       ],
-      answer: 0,
+      answer: 3,
       solution: "Divide both sides by 3: x = 15 ÷ 3 = 5."
    },
    {
-      question: "Solve: 3x = 15",
+      question: "Solve: 3x + 5 = 21-5x",
       options: [
          "x = 5",
-         "x = 3",
+         "x = 2",
          "x = 15",
          "x = 45"
       ],
-      answer: 0,
-      solution: "Divide both sides by 3: x = 15 ÷ 3 = 5."
+      answer: 1,
+      solution: "Group like terms: 8x = 16, divide both sides by 8: x = 16 ÷ 8 = 2."
    },
    {
       question: "Solve: 2x + 5 = 13",
       options: [
+         "x = 7",
          "x = 4",
-         "x = 9",
          "x = 8",
          "x = 3"
       ],
-      answer: 0,
+      answer: 1,
       solution: "Subtract 5: 2x = 8 → divide by 2 → x = 4."
    },
    {
-      question: "Solve: 5x − 3 = 2x + 9",
+      question: "Solve: 5x − 2 = 2x + 9",
       options: [
-         "x = 4",
+         "x = -11/3",
          "x = 2",
-         "x = −4",
+         "x = 11/3",
          "x = 6"
       ],
-      answer: 0,
-      solution: "Bring x terms together: 5x − 2x = 9 + 3 → 3x = 12 → x = 4."
+      answer: 2,
+      solution: "Bring x terms together: 5x − 2x = 9 + 2 → 3x = 11 → x = 11/3."
    },
    {
       question: "Solve: x/3 + 4 = 7",
@@ -70,60 +70,60 @@ window.algebraQuestions = {
    {
       question: "Solve: 2(x + 3) = 14",
       options: [
-         "x = 4",
+         "x = 11",
          "x = 7",
          "x = 5",
-         "x = 11"
+         "x = 4"
       ],
-      answer: 0,
+      answer: 3,
       solution: "Expand: 2x + 6 = 14 → 2x = 8 → x = 4."
    },
    {
       question: "Solve: 4 − x = 9",
       options: [
-         "x = −5",
-         "x = 5",
+         "x = −4",
+         "x = -5",
          "x = −13",
          "x = 13"
       ],
-      answer: 0,
+      answer: 1,
       solution: "Subtract 4: −x = 5 → multiply by −1 → x = −5."
    },
    {
       question: "Solve: x/2 = 5 − x/4",
       options: [
-         "x = 20/3",
+         "x = -20/3",
          "x = 4",
          "x = 16/3",
-         "x = 10"
+         "x = 20/3"
       ],
-      answer: 0,
+      answer: 3,
       solution: "Multiply through by 4: 2x = 20 − x → 3x = 20 → x = 20/3."
    },
    {
-      question: "The sum of a number and 7 is 19. Find the number.",
+      question: "The sum of twice a number and 7 is 19. Find the number.",
       options: [
          "12",
          "26",
-         "7",
+         "6",
          "19"
       ],
-      answer: 0,
-      solution: "Let the number be x: x + 7 = 19 → x = 12."
+      answer: 2,
+      solution: "Let the number be x: 2x + 7 = 19 → 2x = 12, and x = 6."
    },
   ],
   quadratic: [
     {
       question: "Solve: 2x² − 5x − 3 = 0",
       options: [
-        "A. x = 3 or −½",
-        "B. x = −3 or ½",
+        "A. x = 3 or ½",
+        "B. x = 3 or -½",
         "C. x = 1 or −3",
         "D. x = ½ or −3"
       ],
-      answer: 0,
+      answer: 1,
       solution:
-        "Factorise: (2x + 1)(x − 3) = 0. Therefore x = ½ or x = −3."
+        "Factorise: (2x + 1)(x − 3) = 0. Therefore x = -½ or x = 3."
     },
     {
       question: "Find the sum of the roots of x² − 7x + 10 = 0",
@@ -134,7 +134,7 @@ window.algebraQuestions = {
     },
     {
       question: "Given that u² - 5u - 14 = 0. Find u.",
-      options: ["A. u = -2 or 7", "B. u = −4 or 7", "C. u = 2 or -7", "D. u = −5"],
+      options: ["A. u = -4 or 7", "B. u = −2 or 7", "C. u = 2 or -7", "D. u = −5"],
       answer: 0,
       solution:
         "Factorise: (u - 7)(u + 2) = 0. Therefore u = -2 or u = 7."
@@ -176,8 +176,8 @@ window.algebraQuestions = {
     },
     {
       question: "If (z - 2)² - 36 = 0, find z.",
-      options: ["A. z = 8", "B. z = -8", "C. z = 4", "D. z = -4"],
-      answer: 0,
+      options: ["A. z = -4", "B. z = -8", "C. z = 4", "D. z = 8"],
+      answer: 3,
       solution:
         "Taking square roots: z - 2 = 0, therefore z = 2."
     },
@@ -191,12 +191,12 @@ window.algebraQuestions = {
     {
       question: "Solve: x² − 5x + 6 = 0",
       options: [
+        "x = 2 or x = -3",
         "x = 2 or x = 3",
-        "x = −2 or x = −3",
         "x = 1 or x = 6",
         "x = −1 or x = −6"
       ],
-      answer: 0,
+      answer: 1,
       solution: "Factorising: (x − 2)(x − 3) = 0, hence x = 2 or x = 3."
     },
 
@@ -236,23 +236,23 @@ window.algebraQuestions = {
     {
       question: "For what values of k does x² − 4x + k = 0 have equal roots?",
       options: [
-         "k = 4",
-         "k = −4",
          "k = 8",
-         "k = 0"
+         "k = −4",
+         "k = 4",
+         "k = 6"
       ],
-      answer: 0,
+      answer: 2,
       solution: "Equal roots ⇒ discriminant = 0. b² − 4ac = 0 → 16 − 4k = 0 → k = 4."
    },
    {
       question: "Find two numbers whose sum is 1 and product is −6.",
       options: [
-         "3 and −2",
-         "−3 and 2",
-         "6 and −1",
+         "-3 and -2",
+         "3 and -2",
+         "6 and −2",
          "−6 and 1"
       ],
-      answer: 0,
+      answer: 1,
       solution: "Numbers that add to 1 and multiply to −6 are 3 and −2."
    },
    {
@@ -306,12 +306,12 @@ window.algebraQuestions = {
     {
       question: "Solve: (x − 1)(x − 4) = 6",
       options: [
-         "x = (5 + √33)/2 or x = (5 − √33)/2",
+         "x = (5 + √33)/2 or x = -(5 − √33)/2",
          "x = 2 or x = 3",
-         "x = (-5 + √33)/2 or x = (-5 − √33)/2",
+         "x = (5 + √33)/2 or x = (5 − √33)/2",
          "x = 1 or x = 6"
       ],
-      answer: 0,
+      answer: 2,
       solution: "Expand: x² − 5x + 4 = 6 → x² − 5x − 2 = 0. Using the quadratic formula gives x = (5 ± √33)/2."
       },
 
@@ -476,12 +476,12 @@ window.algebraQuestions = {
     {
       question: "Solve: 2x + y = 7 and 3x + 2y = 12",
       options: [
+        "x = 2, y = -3",
         "x = 2, y = 3",
-        "x = 3, y = 1",
         "x = 1, y = 5",
         "x = 4, y = 0"
       ],
-      answer: 0,
+      answer: 1,
       solution: "2x + y = 7 → y = 7 - 2x. Substitute → 3x + 2(7-2x) = 12 → 3x + 14 - 4x = 12 → -x = -2 → x = 2, y = 3."
     },
 
