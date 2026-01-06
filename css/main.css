@@ -67,3 +67,70 @@ button {
   /* z-index: 10; */
   bottom: 0;
 }
+/* REPORT FLOAT */
+.report-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: rgba(218, 165, 32, 0.2); /* gold */
+  color: #1A1A1A;
+  padding: 8px 12px;
+  border-radius: 10px;
+  font-size: 14px;
+  cursor: pointer;
+  border: 1px solid rgba(218, 165, 32, 0.4);
+  animation: pulse 4s infinite;
+  z-index: 999;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+/* REPORT BOX */
+.report-box {
+  position: fixed;
+  bottom: 70px;
+  right: 20px;
+  width: 220px;
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 14px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+  z-index: 1000;
+}
+
+.report-title {
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.report-text {
+  font-size: 13px;
+  color: #5F6C7B;
+  margin-bottom: 12px;
+}
+
+.report-btn {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 8px;
+  border-radius: 8px;
+  text-align: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+.report-btn.whatsapp {
+  background: #25D366;
+  color: #fff;
+  text-decoration: none;
+}
+
+.report-btn.close {
+  background: #F1F5F9;
+  color: #1A1A1A;
+  border: none;
+}
