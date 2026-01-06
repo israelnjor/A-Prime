@@ -332,7 +332,7 @@ endMessage.innerHTML = `
   <h3 style="margin-bottom:8px;">Well done 👏</h3>
 
   <p style="margin-bottom:12px;">
-    You should be proud of yourself for finishing this set.
+    You have successfully completed this set of questions
   </p>
 
   <p style="margin-bottom:12px;">
@@ -351,7 +351,7 @@ endMessage.innerHTML = `
       `
       : `
         <div style="margin-top:16px;">
-          <p><strong>New questions are coming very soon 🔥</strong></p>
+          <p><strong>New sets of questions are coming very soon 🔥</strong></p>
           <p>
             Next release:
             <strong>${nextSubtopic ? formatSubtopic(nextSubtopic) : "New topic"}</strong>
