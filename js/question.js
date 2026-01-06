@@ -84,6 +84,31 @@ const retryBtn = document.getElementById("retryBtn");
 const continueBtn = document.getElementById("continueBtn");
 const backBtn = document.getElementById("backBtn");
 
+
+const whatsappBtn = document.getElementById("whatsappReport");
+
+function updateWhatsAppLink() {
+  if (!whatsappBtn) return;
+
+  const q = questions[currentIndex];
+  if (!q) return;
+
+  const message = `
+Hi Israel 👋🏽
+I found a possible error with this question:
+
+Topic: ${topic}
+Subtopic: ${formatSubtopic(subtopic)}
+Question: ${q.question}
+
+Please, kindly check it🙏🏽
+  `.trim();
+
+  const encodedMessage = encodeURIComponent(message);
+
+  whatsappBtn.href = `https://wa.me/233539032948?text=${encodedMessage}`;
+}
+
 /***********************
  * LOAD / SAVE PROGRESS
  ************************/
@@ -148,6 +173,8 @@ function loadQuestion() {
     btn.textContent = text;
     btn.addEventListener("click", () => selectOption(index, btn));
     optionsContainer.appendChild(btn);
+    updateWhatsAppLink();
+
   });
 }
 
