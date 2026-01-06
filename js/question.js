@@ -249,6 +249,17 @@ function formatSubtopic(name) {
     .replace(/_/g, " ")
     .replace(/\b\w/g, c => c.toUpperCase());
 }
+const reportToggle = document.getElementById("reportToggle");
+const reportBox = document.getElementById("reportBox");
+const closeReport = document.getElementById("closeReport");
+
+reportToggle.addEventListener("click", () => {
+  reportBox.classList.toggle("hidden");
+});
+
+closeReport.addEventListener("click", () => {
+  reportBox.classList.add("hidden");
+});
 
 /***********************
  * END SCREEN
