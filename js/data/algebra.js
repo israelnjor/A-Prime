@@ -605,7 +605,7 @@ window.algebraQuestions = {
       solution: "Second equation is not multiple of first → inconsistent system → No solution."
     },
 ],
-     LINEAR INNEQUALITY: [
+     linear_inequality: [
    {
       "question": "Solve: x/3 + 4 > 7",
       "options": [
@@ -617,6 +617,25 @@ window.algebraQuestions = {
       "answer": 0,
       "solution": "Subtract 4: x/3 > 3 → multiply by 3 → x > 9."
    },
+      {
+    question: "A shop sells notebooks at $3 each. A student has at most $21. What is the maximum number of notebooks they can buy?",
+    options: ["x ≤ 7", "x ≥ 7", "x ≤ 6", "x ≥ 6"],
+    answer: 0,
+    solution: "Let x = number of notebooks: 3x ≤ 21 → x ≤ 7."
+  },
+     {
+    question: "A car rental company charges a flat $50 plus $15 per day. If a customer can spend at most $140, how many days can they rent the car?",
+    options: ["x ≤ 6", "x ≤ 5", "x ≤ 7", "x ≥ 6"],
+    answer: 1,
+    solution: "Let x = number of days: 50 + 15x ≤ 140 → 15x ≤ 90 → x ≤ 6."
+  }, 
+     
+     {
+    question: "The sum of a number and 3 is at least 10. Find the inequality.",
+    options: ["x ≥ 7", "x ≤ 7", "x ≥ 13", "x ≤ 13"],
+    answer: 0,
+    solution: "Let x be the number: x + 3 ≥ 10 → x ≥ 7."
+  },
    {
       "question": "Solve: 2(x + 3) ≤ 14",
       "options": [
