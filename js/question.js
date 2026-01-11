@@ -5,7 +5,7 @@ const algebraFlow = [
  "linear",
   "quadratic",
   "simultaneous",
-  "inequalities"
+  "linear_inequalities"
 ];
 
 /***********************
