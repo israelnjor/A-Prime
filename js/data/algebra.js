@@ -603,6 +603,294 @@ window.algebraQuestions = {
       ],
       answer: 0,
       solution: "Second equation is not multiple of first → inconsistent system → No solution."
-    }
+    },
+],
+     LINEAR INNEQUALITY: [
+   {
+      "question": "Solve: x/3 + 4 > 7",
+      "options": [
+         "x > 9",
+         "x < 9",
+         "x > 3",
+         "x < 3"
+      ],
+      "answer": 0,
+      "solution": "Subtract 4: x/3 > 3 → multiply by 3 → x > 9."
+   },
+   {
+      "question": "Solve: 2(x + 3) ≤ 14",
+      "options": [
+         "x ≤ -4",
+         "x ≥ 4",
+         "x ≤ 5",
+         "x ≤ 4"
+      ],
+      "answer": 0,
+      "solution": "Divide both sides by 2: x + 3 ≤ 7 → subtract 3 → x ≤ 4."
+   },
+   {
+      "question": "Solve: 5x - 7 < 3",
+      "options": [
+         "x < 2",
+         "x > 2",
+         "x < -2",
+         "x > -2"
+      ],
+      "answer": 0,
+      "solution": "Add 7: 5x < 10 → divide by 5 → x < 2."
+   },
+   {
+      "question": "Solve: 4 - 2x ≥ 6",
+      "options": [
+         "x ≥ -1",
+         "x ≤ -1",
+         "x ≤ 1",
+         "x ≥ 1"
+      ],
+      "answer": 1,
+      "solution": "Subtract 4: -2x ≥ 2 → divide by -2 (reverse sign) → x ≤ -1."
+   },
+   {
+      "question": "Solve: 3(x - 2) > 6",
+      "options": [
+         "x > 4",
+         "x < 4",
+         "x > 2",
+         "x < 2"
+      ],
+      "answer": 0,
+      "solution": "Divide by 3: x - 2 > 2 → add 2 → x > 4."
+   },
+   {
+      "question": "Solve: 7x + 5 ≤ 19",
+      "options": [
+         "x ≤ 2",
+         "x ≥ 2",
+         "x ≤ 3",
+         "x ≥ 3"
+      ],
+      "answer": 2,
+      "solution": "Subtract 5: 7x ≤ 14 → divide by 7 → x ≤ 2."
+   },
+   {
+      "question": "Solve: 2x - 9 < 5",
+      "options": [
+         "x < 7",
+         "x > 7",
+         "x < -7",
+         "x > -7"
+      ],
+      "answer": 0,
+      "solution": "Add 9: 2x < 14 → divide by 2 → x < 7."
+   },
+   {
+      "question": "Solve: -3x + 4 ≥ 10",
+      "options": [
+         "x ≤ -2",
+         "x ≥ -2",
+         "x ≤ 2",
+         "x ≥ 2"
+      ],
+      "answer": 2,
+      "solution": "Subtract 4: -3x ≥ 6 → divide by -3 (reverse sign) → x ≤ -2."
+   },
+   {
+      "question": "Solve: x/5 - 1 < 3",
+      "options": [
+         "x < 20",
+         "x > 20",
+         "x < 15",
+         "x = 20"
+      ],
+      "answer": 0,
+      "solution": "Add 1: x/5 < 4 → multiply by 5 → x < 20."
+   },
+   {
+      "question": "Solve: 6 - 2x > 10",
+      "options": [
+         "x > -2",
+         "x < -2",
+         "x < 2",
+         "x > 2"
+      ],
+      "answer": 1,
+      "solution": "Subtract 6: -2x > 4 → divide by -2 (reverse sign) → x < -2."
+   },
+   {
+      "question": "Solve: 3x + 7 ≤ 16",
+      "options": [
+         "x ≤ 3",
+         "x ≥ 3",
+         "x ≤ 4",
+         "x ≥ 4"
+      ],
+      "answer": 0,
+      "solution": "Subtract 7: 3x ≤ 9 → divide by 3 → x ≤ 3."
+   },
+   {
+      "question": "Solve: 5(x - 1) > 10",
+      "options": [
+         "x > 3",
+         "x < 3",
+         "x > 2",
+         "x < 2"
+      ],
+      "answer": 2,
+      "solution": "Divide by 5: x - 1 > 2 → add 1 → x > 3."
+   },
+   {
+      "question": "Solve: -4x + 8 < 0",
+      "options": [
+         "x ≤ 2",
+         "x > 2",
+         "x > -2",
+         "x < -2"
+      ],
+      "answer": 1,
+      "solution": "Subtract 8: -4x < -8 → divide by -4 (reverse sign) → x > 2."
+   },
+   {
+      "question": "Solve: 2x + 5 ≥ 1",
+      "options": [
+         "x ≥ -2",
+         "x ≤ -2",
+         "x ≥ 2",
+         "x ≤ 2"
+      ],
+      "answer": 0,
+      "solution": "Subtract 5: 2x ≥ -4 → divide by 2 → x ≥ -2."
+   },
+   {
+      "question": "Solve: x/2 - 3 ≤ 1",
+      "options": [
+         "x < 8",
+         "x ≤ 8",
+         "x ≤ -8",
+         "x ≥ -8"
+      ],
+      "answer": 1,
+      "solution": "Add 3: x/2 ≤ 4 → multiply by 2 → x ≤ 8."
+   },
+   {
+      "question": "Solve: 7 - 3x > 1",
+      "options": [
+         "x < 2",
+         "x > 2",
+         "x < -2",
+         "x > -2"
+      ],
+      "answer": 1,
+      "solution": "Subtract 7: -3x > -6 → divide by -3 (reverse sign) → x < 2."
+   },
+   {
+      "question": "Solve: 4x - 5 < 3",
+      "options": [
+         "x = 2",
+         "x > 2",
+         "x < 2",
+         "x > -2"
+      ],
+      "answer": 0,
+      "solution": "Add 5: 4x < 8 → divide by 4 → x < 2."
+   },
+   {
+      "question": "Solve: -2x + 1 ≥ 7",
+      "options": [
+         "x < -3",
+         "x ≥ -3",
+         "x ≤ 3",
+         "x ≤ -3"
+      ],
+      "answer": 3,
+      "solution": "Subtract 1: -2x ≥ 6 → divide by -2 (reverse sign) → x ≤ -3."
+   },
+   {
+      "question": "Solve: 3(x + 2) ≤ 15",
+      "options": [
+         "x ≤ 3",
+         "x ≥ 3",
+         "x ≤ 2",
+         "x ≥ 2"
+      ],
+      "answer": 0,
+      "solution": "Divide by 3: x + 2 ≤ 5 → subtract 2 → x ≤ 3."
+   },
+   {
+      "question": "Solve: x/4 + 6 > 8",
+      "options": [
+         "x ≥ 8",
+         "x < 8",
+         "x > 8",
+         "x < 4"
+      ],
+      "answer": 2,
+      "solution": "Subtract 6: x/4 > 2 → multiply by 4 → x > 8."
+   },
+   {
+      "question": "Solve: 5 - x ≤ 2",
+      "options": [
+         "x > 3",
+         "x ≤ 3",
+         "x ≥ -3",
+         "x ≥ 3"
+      ],
+      "answer": 0,
+      "solution": "Subtract 5: -x ≤ -3 → divide by -1 (reverse sign) → x ≥ 3."
+   },
+   {
+      "question": "Solve: 2x - 7 ≥ 3",
+      "options": [
+         "x = 5",
+         "x ≥ 5",
+         "x ≥ -5",
+         "x ≤ -5"
+      ],
+      "answer": 1,
+      "solution": "Add 7: 2x ≥ 10 → divide by 2 → x ≥ 5."
+   },
+   {
+      "question": "Solve: -x + 4 < 1",
+      "options": [
+         "x > 3",
+         "x < 3",
+         "x > -3",
+         "x < -3"
+      ],
+      "answer": 0,
+      "solution": "Subtract 4: -x < -3 → divide by -1 (reverse sign) → x > 3."
+   },
+   {
+      "question": "Solve: 3x + 2 > 11",
+      "options": [
+         "x > -4",
+         "x < 3",
+         "x > -3",
+         "x > 3"
+      ],
+      "answer": 3,
+      "solution": "Subtract 2: 3x > 9 → divide by 3 → x > 3."
+   },
+   {
+      "question": "Solve: 4 - x/2 ≥ 1",
+      "options": [
+         "x ≤ -6",
+         "x ≥ 6",
+         "x ≤ 6",
+         "x ≥ -6"
+      ],
+      "answer": 2,
+      "solution": "Subtract 4: -x/2 ≥ -3 → multiply by -2 (reverse sign) → x ≤ 6."
+   },
+   {
+      "question": "Solve: 6x - 5 ≤ 13",
+      "options": [
+         "x ≤ 2",
+         "x ≥ 3",
+         "x ≤ 3",
+         "x ≥ 2"
+      ],
+      "answer": 2,
+      "solution": "Add 5: 6x ≤ 18 → divide by 6 → x ≤ 3."
+   }
   ]
 };
