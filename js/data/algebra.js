@@ -625,7 +625,7 @@ window.algebraQuestions = {
   },
      {
     question: "A car rental company charges a flat $50 plus $15 per day. If a customer can spend at most $140, how many days can they rent the car?",
-    options: ["x ≤ 6", "x ≤ 5", "x ≤ 7", "x ≥ 6"],
+    options: ["x ≤ 5", "x ≤ 6", "x ≤ 7", "x ≥ 6"],
     answer: 1,
     solution: "Let x = number of days: 50 + 15x ≤ 140 → 15x ≤ 90 → x ≤ 6."
   }, 
@@ -644,7 +644,7 @@ window.algebraQuestions = {
          "x ≤ 5",
          "x ≤ 4"
       ],
-      "answer": 0,
+      "answer": 3,
       "solution": "Divide both sides by 2: x + 3 ≤ 7 → subtract 3 → x ≤ 4."
    },
    {
@@ -683,9 +683,9 @@ window.algebraQuestions = {
    {
       "question": "Solve: 7x + 5 ≤ 19",
       "options": [
-         "x ≤ 2",
-         "x ≥ 2",
          "x ≤ 3",
+         "x ≥ 2",
+         "x ≤ 2",
          "x ≥ 3"
       ],
       "answer": 2,
@@ -705,9 +705,9 @@ window.algebraQuestions = {
    {
       "question": "Solve: -3x + 4 ≥ 10",
       "options": [
-         "x ≤ -2",
-         "x ≥ -2",
          "x ≤ 2",
+         "x ≥ -2",
+         "x ≤ -2",
          "x ≥ 2"
       ],
       "answer": 2,
@@ -754,7 +754,7 @@ window.algebraQuestions = {
          "x > 2",
          "x < 2"
       ],
-      "answer": 2,
+      "answer": 0,
       "solution": "Divide by 5: x - 1 > 2 → add 1 → x > 3."
    },
    {
@@ -798,7 +798,7 @@ window.algebraQuestions = {
          "x < -2",
          "x > -2"
       ],
-      "answer": 1,
+      "answer": 0,
       "solution": "Subtract 7: -3x > -6 → divide by -3 (reverse sign) → x < 2."
    },
    {
@@ -809,7 +809,7 @@ window.algebraQuestions = {
          "x < 2",
          "x > -2"
       ],
-      "answer": 0,
+      "answer": 2,
       "solution": "Add 5: 4x < 8 → divide by 4 → x < 2."
    },
    {
@@ -853,7 +853,7 @@ window.algebraQuestions = {
          "x ≥ -3",
          "x ≥ 3"
       ],
-      "answer": 0,
+      "answer": 3,
       "solution": "Subtract 5: -x ≤ -3 → divide by -1 (reverse sign) → x ≥ 3."
    },
    {
