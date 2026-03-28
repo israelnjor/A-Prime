@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>A-Prime | Practice</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/main.css" />
+  <link rel="stylesheet" href="css/cards.css" />
+  <link rel="stylesheet" href="css/question.css" />
+</head>
+<body>
+
+  <!-- HEADER / PROGRESS -->
+  <header class="top-bar">
+    <button class="back-btn" onclick="history.back()">←</button>
+
+    <div class="top-info">
+      <span class="topic-name">Algebra</span>
+      <span class="question-count">Practice</span>
+
+      <span class="question-count" id="questionCount">
+        Question 1 of 20
+      </span>
+
+      <div class="progress-wrapper">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- QUESTION CARD -->
+    <section class="card question-card">
+      <p class="question-number" style="margin-top: 30px;">Question</p>
+      <p class="question-text"></p>
+    </section>
+
+    <!-- OPTIONS -->
+    <section class="options"></section>
+
+    <!-- ACTION BUTTON -->
+    <div class="action-area">
+      <button class="primary-btn hidden" disabled>
+        Check answer
+      </button>
+    </div>
+
+    <!-- FEEDBACK -->
+    <section class="feedback hidden">
+      <p class="feedback-text"></p>
+    </section>
+
+    <!-- SOLUTION -->
+    <section class="solution hidden">
+      <h4>Solution</h4>
+      <p class="solution-text"></p>
+    </section>
+
+    <!-- END SCREEN -->
+    <section class="card end-screen hidden" id="endScreen">
+      <h3>Well done 👏</h3>
+
+      <div class="end-message"></div>
+
+      <div class="end-actions">
+        <button class="secondary-btn" id="retryBtn">🔁 Retry</button>
+        <button class="primary-btn" id="continueBtn">▶ Continue</button>
+        <button class="link-btn" id="backBtn">← Back to Algebra</button>
+      </div>
+    </section>
+    <!-- REPORT ISSUE FLOAT -->
+<div class="report-float" id="reportToggle">
+  …?
+</div>
+
+<!-- REPORT BOX -->
+<div class="report-box hidden" id="reportBox">
+  <p class="report-title">Found an error?</p>
+  <p class="report-text">Help us fix it quickly.</p>
+
+  <a
+  href="#"
+  target="_blank"
+  class="report-btn whatsapp"
+  id="whatsappReport"
+>
+  💬 WhatsApp Israel
+</a>
+
+
+  <button class="report-btn close" id="closeReport">
+    Close
+  </button>
+</div>
+
+  </main>
+
+  
+<!-- FOOTER -->
+<footer class="footer" style="position: absolute; left: 0; right: 0; bottom: 0; z-index: 10;">
+   <p>© A-Prime · 2026 · @Israelnjor</p>
+</footer>
+
+  <!-- SCRIPTS (ORDER MATTERS) -->
+  <script src="./js/data/algebra.js"></script>
+  <script src="./js/question.js"></script>
+
+</body>
+</html>
